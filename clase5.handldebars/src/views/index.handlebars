@@ -1,0 +1,12 @@
+<h1>Hola {{user.name}}</h1>
+<h2>Pais: {{user.country}}</h2>
+<h3>Bienvenidos a HandlebarsFoods!!!</h1>
+  {{#if isAdmin}}
+  {{#each foods}}
+  <p>Producto: {{this.name}}</p>
+  <p>Precio: {{this.price}}</p>
+  {{/each}}
+  {{else}}
+  <h3>Lo siento {{user.name}}, no eres administrador</h3>
+  {{/if}}
+  <script src="/js/index.js"></script>

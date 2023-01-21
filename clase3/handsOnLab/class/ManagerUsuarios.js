@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-const path = './files/usuarios.js'
+const path = './files/usuario.json'
 
 export default class ManagerUsuarios {
   async consultarUsuarios() {
