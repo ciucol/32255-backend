@@ -4,6 +4,7 @@ const { Server } = require('socket.io')
 const router = require('./router')
 
 const port = 3000
+const messages = []
 const app = express()
 
 app.use(express.json())
@@ -22,13 +23,13 @@ const io = new Server(httpServer)
 io.on('connection', socket => {
   console.log(`New client with id: ${socket.id}`)
 
-  socket.on('messageFromClient', data => {
-    console.log(data)
+  socket.on('newUser', user => {
+    socket.broadcast.emit('newUserConnected', user)
+    socket.emit('allChats', messages)
   })
 
-  socket.emit('messageFromServer', 'Este es un mensaje para todos')
-
   socket.on('chatFromClient', data => {
+    messages.push(data)
     io.emit('messageForChat', data)
   })
 })
