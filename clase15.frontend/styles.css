@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f6f6f6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+  background-color: #70416d;
+  padding: 30px;
+  border-radius: 10px;
+  overflow: hidden; /* Añadir esta línea para evitar que la imagen se salga del contenedor */
+}
+
+.logo {
+  width: 100%; /* Cambiar max-width a width */
+  height: auto;
+  margin-bottom: 15px;
+  object-fit: cover; /* Añadir esta línea para que la imagen se ajuste proporcionalmente */
+}
+
+.title {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+.orders-list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.order-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s;
+}
+
+.order-item:hover {
+  transform: translateY(-10px);
+}
+
+.order-number,
+.order-user,
+.order-restaurant,
+.order-price {
+  margin: 0;
+  font-size: 18px;
+  color: #70416d;
+}
+
+.order-products {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.order-products ul {
+  padding-left: 20px;
+}

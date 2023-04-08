@@ -16,6 +16,10 @@ const collectionSchema = new mongoose.Schema({
   totalPrice: Number,
 })
 
+collectionSchema.pre('find', function () {
+  this.populate('restaurant').populate('user')
+})
+
 const Orders = mongoose.model(collectionName, collectionSchema)
 
 module.exports = Orders
