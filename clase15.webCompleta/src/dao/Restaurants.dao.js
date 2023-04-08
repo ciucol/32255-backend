@@ -29,7 +29,7 @@ class RestaurantsDAO {
 
   async update(id, restaurantInfo) {
     try {
-      return await Restaurants.updateOne({ _id: id }, restaurantInfo)
+      return await Restaurants.updateOne({ _id: id }, { $set: restaurantInfo })
     } catch (error) {
       throw error
     }

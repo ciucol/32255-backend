@@ -27,9 +27,9 @@ class OrdersDAO {
     }
   }
 
-  async update(id, restaurantInfo) {
+  async update(id, orderInfo) {
     try {
-      return await Restaurants.updateOne({ _id: id }, restaurantInfo)
+      return await Orders.updateOne({ _id: id }, { $set: orderInfo })
     } catch (error) {
       throw error
     }

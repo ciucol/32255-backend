@@ -4,7 +4,7 @@ const collectionName = 'orders'
 
 const collectionSchema = new mongoose.Schema({
   number: String,
-  restaunt: {
+  restaurant: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'restaurant',
   },
@@ -13,7 +13,7 @@ const collectionSchema = new mongoose.Schema({
     ref: 'user',
   },
   products: [],
-  totalPrice: number,
+  totalPrice: Number,
 })
 
 const Orders = mongoose.model(collectionName, collectionSchema)

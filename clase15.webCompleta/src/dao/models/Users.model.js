@@ -5,7 +5,10 @@ const collectionName = 'user'
 const collectionSchema = new mongoose.Schema({
   name: String,
   email: String,
-  role: String,
+  role: {
+    type: String,
+    default: 'user',
+  },
   orders: {
     type: [
       {
