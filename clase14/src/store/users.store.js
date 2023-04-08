@@ -4,9 +4,10 @@ const Users = new UsersDao()
 const createUser = async newUserInfo => {
   try {
     const newUser = await Users.nuevoUsuario(newUserInfo)
+
     return newUser
   } catch (error) {
-    return error
+    throw Error(error)
   }
 }
 

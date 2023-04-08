@@ -13,10 +13,10 @@ class UsersDao {
 
   async nuevoUsuario(newUserInfo) {
     try {
-      const user = await Users.insertOne(newUserInfo)
+      const user = await Users.create(newUserInfo)
       return user
     } catch (error) {
-      return error
+      throw new Error(error)
     }
   }
 }

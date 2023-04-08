@@ -23,7 +23,7 @@ const createUser = async user => {
 
     return newUserReturn
   } catch (error) {
-    return error
+    throw Error(error)
   }
 }
 
