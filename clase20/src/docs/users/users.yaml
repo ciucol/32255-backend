@@ -1,0 +1,113 @@
+openapi: "3.1.0"
+info:
+  title: API Users
+  version: "1.0"
+paths:
+  /api/users/:
+    get:
+      summary: Obtiene todos los usuarios
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Todos los usuarios fueron obtenido
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+  /api/users/{uid}:
+    get:
+      summary: Obtienes un solo usuario
+      tags:
+        - Users
+      parameters:
+        - name: uid
+          in: path
+          required: true
+          description: id del usuario que buscas
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Usuario encontrado
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Hiciste mal la petición
+        "401":
+          description: No te pudiste autenticar
+        "403":
+          description: No tienes permisos para esa operación
+        "500":
+          description: Error del server
+    put:
+      summary: Actualiza un usuario
+      tags:
+        - Users
+      parameters:
+      - name: uid
+        in: path
+        required: true
+        description: id del usuario que buscas
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/requestBodies/updateUser"
+      responses:
+        "200":
+          description: Usuario actualizado
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: Id de mongo
+        first_name:
+          type: string
+          description: Nombre del usuario
+        last_name:
+          type: string
+          description: Apellido del usuario
+        email:
+          type: string
+          description: Correo del usuario
+        password:
+          type: string
+          description: Contraseña del usuario
+      example:
+        _id: ObjectId("jryw487h98h4fy87h4")
+        first_name: Mate
+        last_name: Naran
+        email: mate@naran.com
+        password: mate123
+  requestBodies:
+    updateUser:
+      description: Body con la info del usuario a actualizar
+      properties:
+        first_name:
+          type: string
+          description: Nombre del usuario
+        last_name:
+          type: string
+          description: Apellido del usuario
+        email:
+          type: string
+          description: Correo del usuario
+        password:
+          type: string
+          description: Contraseña del usuario
+      example:
+        first_name: Titín
+        last_name: Naran
+        email: titin@naran.com
+        password: titin123
