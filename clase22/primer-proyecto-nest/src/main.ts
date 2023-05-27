@@ -9,7 +9,7 @@ bootstrap();
 
 const user = {
   name: 'mate',
-  lastname: 'naran',
+  lastname: 'naranjo',
   email: 'mate@naran.com',
   password: 'mate123',
 };
