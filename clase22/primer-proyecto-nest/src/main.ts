@@ -10,4 +10,6 @@ bootstrap();
 const user = {
   name: 'mate',
   lastname: 'naran',
+  email: 'mate@naran.com',
+  password: 'mate123',
 };
